@@ -1,0 +1,6 @@
+The Total Number of reviews processed: 50
+The Total Number of valid reviews 49
+The Total Number of invalid reviews 1
+Product ID: P0000000001, Average Rating: 4.8
+Product ID: P0000000002, Average Rating: 4.2
+Product ID: P0000000004, Average Rating: 3.6
