@@ -17,7 +17,6 @@ def load_train_data(filename):
 			}
 	return trains
 
-# Load Passenger Data
 def load_passenger_data(filename):
 	passengers = []
 	with open(filename, mode='r') as file:
@@ -26,7 +25,8 @@ def load_passenger_data(filename):
 			passengers.append({
 				'Passenger Name': row['Passenger Name'],
 				'Train ID': row['Train ID'],
-				'Number of Tickets': int(row['Number of Tickets'])
+				'Number of Tickets': int(row['Number of Tickets']),
+				'Tier': row['Tier']
 			})
 	return passengers
 

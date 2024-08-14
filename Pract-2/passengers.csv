@@ -1,6 +1,6 @@
-Passenger Name,Train ID,Number of Tickets
-Alice,1,2
-Bob,2,3
-Charlie,3,1
-David,1,5
-Eve,2,2
+Passenger Name,Train ID,Number of Tickets,Tier
+Alice,1,2,Two Tier
+Bob,2,3,Three Tier
+Charlie,3,1,Two Tier
+David,1,5,Three Tier
+Eve,2,2,Two Tier
