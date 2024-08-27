@@ -14,6 +14,6 @@ Your task is to write a Python program that performs the following operations:
         1. Total Confirmed Cases.
         2. Total Deaths.
         3. Total Recovered Cases.
-        4. Total Actie Cases.
+        4. Total Active Cases.
     3. Determine the top 5 countries with the highest number of confirmed cases and the lowest number of confirmed cases.
-    4. Generate a summary report in JSON format that includes the statistics for all countries and save it to a file named 'covid10_summary.json'.
+    4. Generate a summary report in JSON format that includes the statistics for all countries and save it to a file named 'covid19_summary.json'.
