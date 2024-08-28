@@ -21,28 +21,25 @@ def statisticsJson(countries):
         # print(country['data'][0]['deaths']['total'])
         # print(country['data'][0]['recovered']['total'])
         country_name = country['country']
-        avg_confirmed_cases = 0
-        avg_deaths = 0
-        avg_recovered = 0
+        total_confirmed_cases = 0
+        total_deaths = 0
+        total_recovered = 0
         max_cases = 0
         for i in range(0, len(country['data'])):
-            avg_confirmed_cases += country['data'][i]['confirmed_cases']['total']
-            avg_deaths += country['data'][i]['deaths']['total']
-            avg_recovered += country['data'][i]['recovered']['total']
+            total_confirmed_cases += country['data'][i]['confirmed_cases']['total']
+            total_deaths += country['data'][i]['deaths']['total']
+            total_recovered += country['data'][i]['recovered']['total']
             if country['data'][i]['confirmed_cases']['total'] > max_cases:
                 max_cases = country['data'][i]['confirmed_cases']['total']
                 max_cases_date = country['data'][i]['date']
-
-        avg_confirmed_cases = avg_confirmed_cases / len(country['data'])
-        avg_deaths = avg_deaths / len(country['data'])
-        avg_recovered = avg_recovered / len(country['data'])
         
         
         country_stats.append({
             'country': country_name,
-            'confirmed_cases': avg_confirmed_cases,
-            'deaths': avg_deaths,
-            'recovered': avg_recovered,
+            'confirmed_cases': total_confirmed_cases,
+            'deaths': total_deaths,
+            'recovered': total_recovered,
+            'active_cases': total_confirmed_cases - total_deaths - total_recovered,
             'max_cases': max_cases,
             'max_date': max_cases_date
         })
@@ -66,6 +63,14 @@ if __name__ == "__main__":
     getcwd = os.getcwd()
     datadir = os.path.join(getcwd, "data")
     stats = statisticsJson(readJson(datadir))
+    top5, bottom5 = countries_ranking(stats)
+    summary_report(datadir)
+    print("Top 5 Countries:")
+    for i in top5:
+        print(f"  {i['country']} - {i['confirmed_cases']} cases")
+    print("Bottom 5 Countries:")
+    for i in bottom5:
+        print(f"  {i['country']} - {i['confirmed_cases']} cases")
 
     while True:
         userInput = input("Enter the country name to get the statistics (or type 'exit' to quit): ")
