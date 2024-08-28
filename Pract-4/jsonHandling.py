@@ -62,9 +62,21 @@ def summary_report(datadir):
         json.dump(stats, f, indent=4)
 
 
-
-
 if __name__ == "__main__":
     getcwd = os.getcwd()
     datadir = os.path.join(getcwd, "data")
-    summary_report(datadir)
+    stats = statisticsJson(readJson(datadir))
+
+    while True:
+        userInput = input("Enter the country name to get the statistics (or type 'exit' to quit): ")
+        if userInput.lower() == 'exit':
+            break
+        country_stat = next((item for item in stats if item['country'].lower() == userInput.lower()), None)
+        if country_stat:
+            print(f"Statistics for {country_stat['country']}:")
+            print(f"  Confirmed Cases: {country_stat['confirmed_cases']}")
+            print(f"  Deaths: {country_stat['deaths']}")
+            print(f"  Recovered: {country_stat['recovered']}")
+            print(f"  Max Cases: {country_stat['max_cases']} on {country_stat['max_date']}")
+        else:
+            print("Country not found. Please try again.")
