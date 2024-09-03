@@ -55,7 +55,7 @@ if __name__ == "__main__":
     top5, bottom5 = countries_ranking(stats)
     summary_report(datadir)
     print("Top 5 Countries:")
-    for i in top5:
+    for i in top5: 
         print(f"  {i['country']} - {i['confirmed_cases']} cases")
     print("Bottom 5 Countries:")
     for i in bottom5:
