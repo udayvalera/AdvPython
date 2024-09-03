@@ -15,23 +15,14 @@ def readJson(datadir):
 def statisticsJson(countries):
     country_stats = []
     for country in countries:
-        # print(country['country'])
-        # print(country['data'][0]['date'])
-        # print(country['data'][0]['confirmed_cases']['total'])
-        # print(country['data'][0]['deaths']['total'])
-        # print(country['data'][0]['recovered']['total'])
         country_name = country['country']
         total_confirmed_cases = 0
         total_deaths = 0
         total_recovered = 0
-        max_cases = 0
         for i in range(0, len(country['data'])):
             total_confirmed_cases += country['data'][i]['confirmed_cases']['total']
             total_deaths += country['data'][i]['deaths']['total']
             total_recovered += country['data'][i]['recovered']['total']
-            if country['data'][i]['confirmed_cases']['total'] > max_cases:
-                max_cases = country['data'][i]['confirmed_cases']['total']
-                max_cases_date = country['data'][i]['date']
         
         
         country_stats.append({
@@ -39,9 +30,7 @@ def statisticsJson(countries):
             'confirmed_cases': total_confirmed_cases,
             'deaths': total_deaths,
             'recovered': total_recovered,
-            'active_cases': total_confirmed_cases - total_deaths - total_recovered,
-            'max_cases': max_cases,
-            'max_date': max_cases_date
+            'active_cases': total_confirmed_cases - total_deaths - total_recovered
         })
     return country_stats
 
@@ -82,6 +71,6 @@ if __name__ == "__main__":
             print(f"  Confirmed Cases: {country_stat['confirmed_cases']}")
             print(f"  Deaths: {country_stat['deaths']}")
             print(f"  Recovered: {country_stat['recovered']}")
-            print(f"  Max Cases: {country_stat['max_cases']} on {country_stat['max_date']}")
+            # print(f"  Max Cases: {country_stat['max_cases']} on {country_stat['max_date']}")
         else:
             print("Country not found. Please try again.")
