@@ -16,7 +16,7 @@ end_date_obj = datetime.strptime(end_date, "%Y-%m-%d")
 all_dates = [start_date_obj + timedelta(days=x) for x in range((end_date_obj - start_date_obj).days + 1)]
 
 # Data population
-data = []
+data = [] 
 for date in all_dates:
     for _ in range(random.randint(5, 15)):  # Randomly generate between 5 and 15 sales records per day
         store_id = random.choice(store_ids)
