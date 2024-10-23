@@ -1,0 +1,4 @@
+Hello world! This is a test file for generating a word cloud.
+Word clouds are a great way to visualize text data.
+Let's see how many times each word appears, and the frequency of each character.
+Enjoy creating your word cloud!
