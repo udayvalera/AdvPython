@@ -11,6 +11,7 @@ class FileNotFoundError(Exception):
     def __str__(self):
         return f"file {self.filename} doesn't exist."
 
+
 # Custom exception class to handle invalid input data
 class InvalidInputDataError(Exception):
     def __init__(self, content):
