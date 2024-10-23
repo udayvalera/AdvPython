@@ -40,17 +40,20 @@ def fibonacci(n):
 def main():
     while True:
         user_input = input("Enter a non-negative integer for Fibonacci computation (or 'exit' to quit): ")
+        
         if user_input.lower() == 'exit':
             logging.info("User exited the program.")
+            print("Exiting the program. Goodbye!")
             break
         
         try:
             n = int(user_input)
+            logging.info(f"User entered: {n}")
             result = fibonacci(n)
             print(f"Fibonacci({n}) = {result}")
         except ValueError:
+            logging.warning("Invalid input. User must enter a non-negative integer.")
             print("Invalid input. Please enter a non-negative integer.")
 
 if __name__ == "__main__":
     main()
-
